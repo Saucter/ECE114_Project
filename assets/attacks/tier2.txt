@@ -1,0 +1,39 @@
+What will the following code print?\n @int x = 5;@\n @int& ref = x;@\n @ref = 10;@\n @std::cout << x << std::endl;@\n endl A) 5\n B) 10\n C) Compilation error\n D) Undefined behavior\n ans:B~
+
+Which of the following will correctly declare a constant pointer to an integer?\n endl A) int const* ptr;\n B) int* const ptr;\n C) const int* ptr;\n D) All of the above\n ans:D~
+
+What will the following code output?\n @int x = 10;@\n @int* ptr = &x;@\n @std::cout << ptr << std::endl;@\n endl A) 10\n B) Memory address of x\n C) Compilation error\n D) Undefined behavior\n ans:B~
+
+Which of the following statements is true about references in C++?\n endl A) A reference must always be initialized.\n B) A reference can be null.\n C) A reference can be reassigned.\n D) All of the above\n ans:A~
+
+Will the following code compile?\n @int* ptr = nullptr;@\n @int x = *ptr;@\n endl A) Yes\n B) No\n ans:B~
+
+What does the & operator do when used in a declaration like int& ref?\n endl A) Declares a reference to an integer\n B) Declares a pointer to an integer\n C) Gets the address of a variable\n D) Declares a constant integer\n ans:A~
+
+What is the value of y after the following code executes?\n @int x = 5;@\n @int& ref = x;@\n @ref = 7;@\n @int y = x;@\n endl A) 5\n B) 7\n C) Undefined\n D) Compilation error\n ans:B~
+
+What will the following code output?\n @int x = 5;@\n @int* ptr = &x;@\n @int** doublePtr = &ptr;@\n @std::cout << **doublePtr << std::endl;@\n endl A) The memory address of ptr\n B) The memory address of x\n C) 5\n D) Compilation error\n ans:C~
+
+Which of the following is true about the nullptr keyword in C++?\n endl A) It replaces NULL in C++11 and beyond.\n B) It can be assigned to any pointer.\n C) It is strongly typed compared to NULL.\n D) All of the above\n ans:D~
+
+What is the result of the following code?\n @int x = 5;@\n @int& ref = x;@\n @ref = 3;@\n @std::cout << &ref << " " << &x << std::endl;@\n endl A) Two different memory addresses\n B) Same memory address twice\n C) Compilation error\n D) Undefined behavior\n ans:B~
+
+What will the following code output?\n @int x = 7;@\n @int* ptr = &x;@\n @int** ptr2 = &ptr;@\n @std::cout << *ptr2 << std::endl;@\n ans:Memory address of x~
+
+What will the following code output?\n @int arr[3] = {10, 20, 30};@\n @int* ptr = arr;@\n @std::cout << ptr[1] << std::endl;@\n ans:20~
+
+What is the value of y after this code?\n @int x = 5;@\n @int& ref = x;@\n @x = 8;@\n @int y = ref;@\n ans:8~
+
+What will the following code output?\n @int x = 10;@\n @int y = 20;@\n @int* ptr = &x;@\n @ptr = &y;@\n @std::cout << *ptr << std::endl;@\n ans:20~
+
+What will the following code output?\n @int x = 3;@\n @int& ref1 = x;@\n @int& ref2 = ref1;@\n @std::cout << ref2 << std::endl;@\n ans:3~
+
+What does this code print?\n @int x = 2;@\n @int* ptr = &x;@\n @std::cout << *ptr + x << std::endl;@\n ans:4~
+
+What will the following code output?\n @int x = 5;@\n @int* ptr = &x;@\n @std::cout << &(*ptr) << std::endl;@\n ans:Memory address of x~
+
+What is the output of this code?\n @int arr[3] = {1, 2, 3};@\n @std::cout << *(arr + 2) << std::endl;@\n ans:3~
+
+What is the result of dereferencing a null pointer in C++?\n ans:Undefined behavior~
+
+What will the following code output?\n @int x = 3;@\n @int y = 4;@\n @std::cout << (x > y ? x : y) << std::endl;@\n ans:4~

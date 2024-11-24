@@ -1,19 +1,39 @@
-What is the value of *ptr after the following code executes?\n ?int x = 10;?\n ?int* ptr = &x;?\n ?*ptr = 20;?\n endl A) 10\n B) 20\n C) The memory address of x\n D) Undefined\n ans:B~
+What is the value of *ptr after the following code executes?\n @int x = 10;@\n @int *ptr = &x;@\n @*ptr = 20;@\n endl A) 10\n B) 20\n C) The memory address of x\n D) Undefined\n ans:B~
 
-What will the following code print?\n ?int x = 5;?\n ?int y = 10;?\n ?int* ptr = &x;?\n ?ptr = &y;?\n ?std::cout << *ptr << std::endl;?\n endl A) 5\n B) 10\n C) Address of y\n D) Compilation error\n ans:B~
+What will the following code print?\n @int x = 5;@\n @int y = 10;@\n @int* ptr = &x;@\n @ptr = &y;@\n @std::cout << *ptr << std::endl;@\n endl A) 5\n B) 10\n C) Address of y\n D) Compilation error\n ans:B~
 
 Which operator is used to access the value pointed to by a pointer?\n endl A) &\n B) *\n C) ->\n D) .\n ans:B~
 
 What does the nullptr keyword represent in C++?\n endl A) A null character\n B) A pointer that points to no valid object or function\n C) A function to reset pointers\n D) An undefined behavior\n ans:B~
 
-What will the following code output?\n ?int x = 5;?\n ?int y = 3;?\n ?int z = x % y;?\n ?std::cout << z << std::endl;?\n endl A) 1\n B) 2\n C) 3\n D) Compilation error\n ans:B~
+What will the following code output?\n @int x = 5;@\n @int y = 3;@\n @int z = x % y;@\n @std::cout << z << std::endl;@\n endl A) 1\n B) 2\n C) 3\n D) Compilation error\n ans:B~
 
-What is the value of result after the following code executes?\n ?int x = 2;?\n ?int y = 3;?\n ?int result = x * y + y / x;?\n endl A) 6\n B) 7\n C) 8\n D) Compilation error\n ans:C~
+What is the value of result after the following code executes?\n @int x = 2;@\n @int y = 3;@\n @int result = x * y + y / x;@\n endl A) 6\n B) 7\n C) 8\n D) Compilation error\n ans:C~
 
-What is the output of the following code?\n ?int x = 5;?\n ?if (x > 3 ? x < 6 : x > 10) {?\n ?std::cout << "True" << std::endl;?\n ?} else {?\n ?std::cout << "False" << std::endl;?\n ?}?\n endl A) True\n B) False\n C) Compilation error\n D) Undefined behavior\n ans:A~
+What is the output of the following code?\n @int x = 5;@\n @if (x > 3 ? x < 6 : x > 10) {@\n @std::cout << "True" << std::endl;@\n @} else {@\n @std::cout << "False" << std::endl;@\n @}@\n endl A) True\n B) False\n C) Compilation error\n D) Undefined behavior\n ans:A~
 
 Which direction is the assignment operator = evaluated?\n endl A) Left to right\n B) Right to left\n C) Top to bottom\n D) None of the above\n ans:B~
 
-What will the following code print?\n ?int arr[3] = {1, 2, 3};?\n ?int* ptr = arr;?\n ?std::cout << *(ptr + 1) << std::endl;?\n endl A) 1\n B) 2\n C) 3\n D) Compilation error\n ans:B~
+What will the following code print?\n @int arr[3] = {1, 2, 3};@\n @int* ptr = arr;@\n @std::cout << *(ptr + 1) << std::endl;@\n endl A) 1\n B) 2\n C) 3\n D) Compilation error\n ans:B~
 
-What is the correct way to allocate memory for an integer dynamically in C++?\n endl A) ?int* ptr = malloc(sizeof(int));?\n B) ?int* ptr = new int;?\n C) ?int* ptr = allocate<int>();?\n D) ?int ptr = new int;?\n ans:B~
+What is the correct way to allocate memory for an integer dynamically in C++?\n endl A) @int* ptr = malloc(sizeof(int));@\n B) @int* ptr = new int;@\n C) @int* ptr = allocate<int>();@\n D) @int ptr = new int;@\n ans:B~
+
+What will the following code output?\n @int x = 10;@\n @int* ptr = &x;@\n @std::cout << *ptr << std::endl;@\n endl A) 0\n B) The memory address of x\n C) 10\n D) Compilation error\n ans:C~
+
+What is the correct way to declare a pointer to an integer?\n endl A) int ptr;\n B) int* ptr;\n C) int ptr;\n D) ptr int;\n ans:B~
+
+What will the following code print?\n @int arr[5] = {10, 20, 30, 40, 50};@\n @int* ptr = arr;@\n @std::cout << *(ptr + 2) << std::endl;@\n endl A) 10\n B) 20\n C) 30\n D) Compilation error\n ans:C~
+
+Which operator is used to get the memory address of a variable?\n endl A) &\n B) *\n C) ->\n D) ++\n ans:A~
+
+What does the following code do?\n @int x = 5;@\n @int* ptr = &x;@\n @*ptr = 15;@\n endl A) Changes the value of x to 15\n B) Changes the memory address of ptr to 15\n C) Produces a compilation error\n D) Nothing\n ans:A~
+
+What will the following code output?\n @int x = 3;@\n @int y = 4;@\n @std::cout << (x > y ? x : y) << std::endl;@\n endl A) 3\n B) 4\n C) Compilation error\n D) Undefined behavior\n ans:B~
+
+What is stored in a pointer variable?\n endl A) The value of a variable\n B) The memory address of a variable\n C) A random number\n D) A string\n ans:B~
+
+What will the following code print?\n @int x = 7;@\n @int* ptr = &x;@\n @std::cout << ptr << std::endl;@\n endl A) 7\n B) The memory address of x\n C) Compilation error\n D) Undefined behavior\n ans:B~
+
+What does the following code do?\n @int* ptr = nullptr;@\n endl A) Declares a dangling pointer\n B) Declares a pointer that points to no valid object\n C) Declares a pointer to an integer with the value 0\n D) Compilation error\n ans:B~
+
+What is the value of arr[2] after the following code executes?\n @int arr[3] = {1, 2, 3};@\n @int* ptr = arr;@\n @*(ptr + 2) = 10;@\n endl A) 1\n B) 2\n C) 10\n D) Compilation error\n ans:C~
