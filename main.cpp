@@ -2,6 +2,7 @@
 #include <vector>
 #include <fstream>
 #include <string>
+#include <regex>
 
 #include "include/Enemy.h"
 #include "include/Player.h"
@@ -14,9 +15,9 @@ void fetchQuestion(std::vector<std::string> &questionsList, int difficulty);
 
 int main()
 {
-    std::vector<Question> *questionTiers = new std::vector<Question>[5];
+    std::vector<Question> questionTiers[5];
     for(int i = 0; i < 5; i++)
-        
+        questionTiers[i] = fetchQuestion(i);
     return 1;
 }
 
@@ -33,5 +34,20 @@ std::vector<Question> fetchQuestion(int difficulty)
 
 Question splitQuestion(std::string stringedQuestion)
 {
+    Question result;
+    std::regex rQuestion("^(.*?)\n endl");
+    std::regex rChoice("endl (.*?)\n ans:");
+    std::regex rAnswer("ans:(.*)$");
+    std::smatch match;
+
+    if(std::regex_search(stringedQuestion, match, rQuestion)) 
+        result.questionStirng = match[1];
     
+    if(std::regex_search(stringedQuestion, match, rChoice)) 
+        result.multipleChoice = match[1];
+
+    if(std::regex_search(stringedQuestion, match, rAnswer)) 
+        result.answer = match[1];
+    
+    return result;
 }

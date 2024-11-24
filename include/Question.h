@@ -5,7 +5,7 @@
 
 struct Question {
     std::string questionStirng;
-    int answer;         
+    std::string answer;         
     std::string multipleChoice;  
 };
 
