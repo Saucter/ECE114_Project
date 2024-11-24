@@ -21,7 +21,7 @@ class Enemy
         bool isAlive();
         int fetchHealth();
         void displayInfo();
-        std::string fetchQuestion(int &difficulty);
+        std::string getRandQuestion(std::vector<std::string> &questionsList);
 };
 
 #endif

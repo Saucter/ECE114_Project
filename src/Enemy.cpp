@@ -1,17 +1,19 @@
 #include "Enemy.h"
-#include <time.h>
+#include <ctime>
 #include <random>
 #include <fstream>
+
+using namespace std::string_literals;
 
 Enemy::Enemy(std::string name, int health, int &difficulty, int &rewardTier, std::string dialogueFile)
     : m_name(name), m_health(health), m_dialogue(difficulty), m_rewardTier(rewardTier)
 {
+    srand(time(NULL));
     // look for dialogueFile corrosponding to name
 }
 
 int Enemy::attackPlayer()
 {
-    srand(time(NULL));
     return ((rand() % (10 - 5 + 1) + 5) / 10) * m_damageMultiplyer;
 }
 
@@ -31,13 +33,7 @@ bool Enemy::isAlive()
     return (m_health) ? 1 : 0;
 }
 
-std::string Enemy::fetchQuestion(int &difficulty)
+std::string Enemy::getRandQuestion(std::vector<std::string> &questionsList)
 {
-    
+    return questionsList[rand() % 10];
 }
-
-
-
-
-
- 
