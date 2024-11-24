@@ -1,0 +1,39 @@
+What will the following code print?\n @int arr[3] = {10, 20, 30};@\n @int *ptr = arr;@\n @std::cout << *(ptr + 1) + *(ptr + 2) << std::endl;@\n endl A) 20\n B) 30\n C) 50\n D) Compilation Error\n ans:C~
+
+What will the following code output?\n @int x = 5, y = 10;@\n @int result = x > 3 && y < 20 ? x * y : x - y;@\n @std::cout << result << std::endl;@\n endl A) 50\n B) -5\n C) 10\n D) Compilation Error\n ans:A~
+
+What does the following code do?\n @int *ptr = new int(10);@\n @std::cout << *ptr;@\n delete ptr;@\n endl A) Outputs 10\n B) Causes a runtime error\n C) Results in undefined behavior\n D) Outputs a garbage value\n ans:A~
+
+What is the output of this code?\n @void modify(int &x, int y) {@\n @x += y;@\n @}@\n @int main() {@\n @int a = 10, b = 5;@\n @modify(a, b);@\n @std::cout << a << std::endl;@\n return 0;@\n }@\n endl A) 10\n B) 5\n C) 15\n D) Compilation Error\n ans:C~
+
+What is the output of this code?\n @int x = 0, y = 1;@\n @if (x || y && 0) {@\n @std::cout << "True";@\n @} else {@\n @std::cout << "False";@\n @}@\n endl A) True\n B) False\n C) Compilation Error\n D) Undefined Behavior\n ans:B~
+
+What will the following code output?\n @int x = 10;@\n @int *ptr = &x;@\n @int **pptr = &ptr;@\n @std::cout << **pptr << std::endl;@\n endl A) 10\n B) Address of x\n C) Compilation Error\n D) Undefined Behavior\n ans:A~
+
+What will this code output?\n @int arr[5] = {1, 2, 3, 4, 5};@\n @int &ref = arr[3];@\n @ref = 10;@\n @std::cout << arr[3] << std::endl;@\n endl A) 3\n B) 4\n C) 10\n D) Compilation Error\n ans:C~
+
+What does this code print?\n @class Test {@\n @public:@\n @int x;@\n @Test(int val) : x(val) {}@\n @int getX() { return x; }@\n @};@\n @int main() {@\n @Test obj(42);@\n @std::cout << obj.getX() << std::endl;@\n return 0;@\n }@\n endl A) 0\n B) 42\n C) Garbage Value\n D) Compilation Error\n ans:B~
+
+What will this code do?\n @int *ptr = nullptr;@\n @if (!ptr) {@\n @std::cout << "Null";@\n @} else {@\n @std::cout << "Not Null";@\n @}@\n endl A) Null\n B) Not Null\n C) Compilation Error\n D) Undefined Behavior\n ans:A~
+
+What is the value of the following code?\n @int arr[4] = {1, 2, 3, 4};@\n @int *ptr = arr;@\n @std::cout << *(ptr + 2) + *(ptr + 3);@\n endl A) 3\n B) 4\n C) 7\n D) 6\n ans:C~
+
+What happens if you fail to delete a dynamically allocated pointer?\n endl A) Memory leak\n B) Deleted automatically\n C) Runtime error\n D) Undefined behavior\n ans:A~
+
+What does the expression *(arr + 2) evaluate to for int arr[3] = {10, 20, 30}?\n ans:30~
+
+What happens if you don’t define a constructor in a class?\n endl A) The program won’t compile\n B) A default constructor is automatically provided\n C) You must manually create one\n D) Undefined behavior\n ans:B~
+
+What does x && y evaluate to if x = 1 and y = 0?\n ans:0~
+
+What does the following declaration do: int* func()?\n ans:return~
+
+What does the following loop print?\n @for (int i = 0; i < 2; i++)@\n @for (int j = 0; j < 3; j++)@\n @std::cout << i << j;@\n ans:001011102021~
+
+What does sizeof(arr)/sizeof(arr[0]) calculate for arr[5]?\n ans:5~
+
+What does (ptr1 == ptr2) evaluate when comparing two pointers?\n ans:0~
+
+What operator is used to accesss a class method accessed through a pointer to an object?\n ans:->~
+
+What happens if you dereference a null pointer?\n ans:undefined~

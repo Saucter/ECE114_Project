@@ -1,8 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <fstream>
 #include <string>
-#include <regex>
 
 #include "include/Enemy.h"
 #include "include/Player.h"
@@ -11,10 +9,6 @@
 #include "include/QuestionManager.h"
 
 using namespace std::string_literals;
-
-std::vector<Question> fetchQuestion(int difficulty);
-Question splitQuestion(std::string stringedQuestion);
-
 
 int main()
 {
@@ -27,5 +21,5 @@ int main()
     Enemy Prof("yes", 2, 1, 2, "oi");
     Prof.getRandQuestion(questionTiers[1]);
 
-    return 1;
+    return 0;
 }
