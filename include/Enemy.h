@@ -3,6 +3,7 @@
 
 #include <string>
 #include <vector>
+#include "Question.h"
 
 class Enemy
 {
@@ -21,7 +22,7 @@ class Enemy
         bool isAlive();
         int fetchHealth();
         void displayInfo();
-        std::string getRandQuestion(std::vector<std::string> &questionsList);
+        Question getRandQuestion(std::vector<Question> &questionsList);
 };
 
 #endif

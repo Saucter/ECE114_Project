@@ -1,7 +1,8 @@
-#include "../include/Enemy.h"
 #include <ctime>
 #include <random>
 #include <fstream>
+#include "../include/Enemy.h"
+#include "../include/Question.h"
 
 using namespace std::string_literals;
 
@@ -33,7 +34,7 @@ bool Enemy::isAlive()
     return (m_health) ? 1 : 0;
 }
 
-std::string Enemy::getRandQuestion(std::vector<std::string> &questionsList)
+Question Enemy::getRandQuestion(std::vector<Question> &questionsList)
 {
     return questionsList[rand() % 10];
 }

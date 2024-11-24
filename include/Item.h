@@ -4,9 +4,9 @@
 #include <string>
 
 struct Item {
-    std::string m_name;
-    int m_value;         
-    std::string m_type;  
+    std::string name;
+    int value;         
+    std::string type;  
 };
 
 #endif
