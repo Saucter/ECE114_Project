@@ -8,16 +8,21 @@
 class Player
 {
     private:
-        std::string name;
+        std::string m_name;
         int m_health;
         int m_armor;
         std::vector<Item> m_inventory;
 
     public:
-        void takeDamaeg(int damage);
+        Player(std::string name, int health, int armor);
+        void takeDamage(int damage);
+        int fetchHealth() const;
+        bool isAlive() const;
         void heal(int amount);
-        void addItem(Item newItem);
-        void showInventory() const;
-};  
+        void shield(int amount);
+        void addItem(Item &newItem);
+        void removeItem(Item &usedItem);
+        std::vector<Item> showInventory();
+};
 
 #endif

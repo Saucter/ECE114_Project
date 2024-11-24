@@ -5,8 +5,9 @@
 
 struct Item {
     std::string name;
-    int value;         
+    int value;
     std::string type;  
+    int amount;
 };
 
 #endif

@@ -31,7 +31,7 @@ int Enemy::fetchHealth()
 
 bool Enemy::isAlive()
 {
-    return (m_health) ? 1 : 0;
+    return fetchHealth();
 }
 
 Question Enemy::getRandQuestion(std::vector<Question> &questionsList)
