@@ -20,7 +20,7 @@ class Player
         bool isAlive() const;
         void heal(int amount);
         void shield(int amount);
-        void addItem(Item &newItem);
+        std::string addItem(Item newItem);
         void removeItem(Item &usedItem);
         std::vector<Item> showInventory();
 };

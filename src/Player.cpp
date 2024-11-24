@@ -28,16 +28,35 @@ bool Player::isAlive() const
     return fetchHealth();
 }
 
-void Player::addItem(Item &newItem)
+std::string Player::addItem(Item newItem)
 {
-    m_inventory.push_back(newItem);
+    const size_t maxInvetorySize = 5;
+    if(m_inventory.size() == maxInvetorySize)
+    {
+        return "Your inventory is full";
+    }
+
+    bool exist = false;
+    for(Item &content : m_inventory)
+    {
+        if(content.name == newItem.name)
+        {
+            content.quantity += 1;
+            exist = true;
+            return "";
+        } 
+    }
+
+    if(!exist)
+        m_inventory.push_back(newItem);
+    
+    return "";
 }
 
 void Player::removeItem(Item &usedItem)
 {
-    m_inventory.erase(m_inventory.begin(), m_inventory.end(), [usedItem](Item used){
-        used.name == usedItem.name;
-    });
+    if(usedItem.quantity > 0)
+        usedItem.quantity -= 1;
 }
 
 std::vector<Item> Player::showInventory()

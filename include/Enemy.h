@@ -16,7 +16,7 @@ class Enemy
         int m_damageMultiplyer;
 
     public:
-        Enemy(std::string name, int health, int &difficulty, int &m_rewardTier, std::string dialogueFile);
+        Enemy(std::string name, int health, int difficulty, int m_rewardTier, std::string dialogueFile);
         int attackPlayer();
         void takeDamaege(int damage);
         bool isAlive();

@@ -7,7 +7,7 @@ struct Item {
     std::string name;
     int value;
     std::string type;  
-    int amount;
+    int quantity;
 };
 
 #endif
