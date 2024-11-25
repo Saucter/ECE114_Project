@@ -4,7 +4,24 @@
 
 Player::Player(std::string name, int health, int armor) : m_name(name), m_health(health), m_armor(armor) 
 {
-    
+    m_inventory.assign(
+    {
+    // Tier 1
+    Item("Syntax Patch", "heal", 1),
+    Item("Debug Barrier", "block", 1),
+    Item("Stack Overflow", "damage", 1),
+
+    // Tier 2
+    Item("Git Revert", "heal", 2),
+    Item("Firewall", "block", 2),
+    Item("Segfault", "damage", 2),
+
+    // Tier 3
+    Item("Recovery Kernel", "heal", 3),
+    Item("Quantum Shield", "block", 3),
+    Item("Kernel Panic", "damage", 3)
+    });
+
 }
 
 void Player::takeDamage(int damage)
