@@ -3,6 +3,8 @@
 #include <regex>
 #include <fstream>
 #include <iostream>
+#include <ctime>
+#include <random>
 #include "../include/Question.h"
 #include "../include/Enemy.h"
 #include "../include/QuestionManager.h"
@@ -40,9 +42,10 @@ Question QuestionManager::splitQuestion(std::string stringedQuestion)
     return result;
 }
 
-Question QuestionManager::enemyQuestion(Enemy enemy, std::vector<Question> &used, const std::vector<Question> &full)
+Question QuestionManager::enemyQuestion(Enemy enemy, std::vector<std::vector<Question>> &used, const std::vector<Question> (&full)[5])
 {
-    if(used.size() == 0)
-        used = full;
-    return enemy.getRandQuestion(used);
+    int difficulty = ((rand() % 10) <= 1 && enemy.fetchDifficulty() != 0) ? enemy.fetchDifficulty() - 1 : enemy.fetchDifficulty();
+    if(used[difficulty].empty())
+        used[difficulty] = full[difficulty];
+    return enemy.getRandQuestion(used[difficulty]);
 }

@@ -23,6 +23,7 @@ class Enemy
         int fetchHealth();
         void displayInfo();
         Question getRandQuestion(std::vector<Question> &questionsList);
+        int fetchDifficulty();
 };
 
 #endif

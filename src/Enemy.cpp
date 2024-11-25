@@ -9,7 +9,6 @@ using namespace std::string_literals;
 Enemy::Enemy(std::string name, int health, int difficulty, int rewardTier, std::string dialogueFile)
     : m_name(name), m_health(health), m_dialogue(difficulty), m_rewardTier(rewardTier)
 {
-    srand(time(NULL));
     // look for dialogueFile corrosponding to name
 }
 
@@ -40,4 +39,9 @@ Question Enemy::getRandQuestion(std::vector<Question> &questionsList)
     Question temp = questionsList[chosen];
     questionsList.erase(questionsList.begin() + chosen);
     return temp;
+}
+
+int Enemy::fetchDifficulty()
+{
+    return m_difficulty;
 }
