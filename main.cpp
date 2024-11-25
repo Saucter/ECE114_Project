@@ -18,7 +18,7 @@ int main()
     QuestionManager qm;
     std::vector<Question> questionTiers[5];
     for(int i = 0; i < 5; i++)
-        questionTiers[i] = qm.fetchQuestion(i);
+        questionTiers[i] = qm.fetchQuestion(i + 1);
     std::vector<std::vector<Question>> questionsUsed(questionTiers, questionTiers + 5);
 
     Enemy Prof("yes", 2, 1, 2, "oi");

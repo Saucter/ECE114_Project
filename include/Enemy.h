@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include "Question.h"
+#include "Player.h"
 
 class Enemy
 {
@@ -19,11 +20,12 @@ class Enemy
         Enemy(std::string name, int health, int difficulty, int m_rewardTier, std::string dialogueFile);
         int attackPlayer();
         void takeDamaege(int damage);
-        bool isAlive();
-        int fetchHealth();
-        void displayInfo();
+        bool isAlive() const;
+        int fetchHealth() const;
+        void displayInfo() const;
         Question getRandQuestion(std::vector<Question> &questionsList);
-        int fetchDifficulty();
+        int fetchDifficulty() const;
+        int dropItem(Player &player);
 };
 
 #endif

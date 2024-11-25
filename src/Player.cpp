@@ -1,7 +1,11 @@
-#include "Player.h"
-#include "Item.h"
+#include "../include/Player.h"
+#include "../include/Item.h"
+#include "../include/Enemy.h"
 
-Player::Player(std::string name, int health, int armor) : m_name(name), m_health(health), m_armor(armor) {}
+Player::Player(std::string name, int health, int armor) : m_name(name), m_health(health), m_armor(armor) 
+{
+    
+}
 
 void Player::takeDamage(int damage)
 {
@@ -28,7 +32,7 @@ bool Player::isAlive() const
     return fetchHealth();
 }
 
-std::string Player::addItem(Item newItem)
+std::string Player::addItem(const Enemy &enemy)
 {
     const size_t maxInvetorySize = 5;
     if(m_inventory.size() == maxInvetorySize)
@@ -36,21 +40,22 @@ std::string Player::addItem(Item newItem)
         return "Your inventory is full";
     }
 
-    bool exist = false;
+    int randDrop = rand() % 3;
+    int tierIteration = 0;
     for(Item &content : m_inventory)
     {
-        if(content.name == newItem.name)
+        if(content.tier == enemy.fetchDifficulty())
         {
-            content.quantity += 1;
-            exist = true;
-            return "";
-        } 
+            if(tierIteration == randDrop)
+            {
+                content.quantity += 1;
+                return "";
+            }
+                tierIteration++;
+        }
     }
-
-    if(!exist)
-        m_inventory.push_back(newItem);
     
-    return "";
+    return "Unexpected error: No item added.";
 }
 
 void Player::removeItem(Item &usedItem)

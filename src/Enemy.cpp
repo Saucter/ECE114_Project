@@ -23,12 +23,12 @@ void Enemy::takeDamaege(int damage)
     
 }
 
-int Enemy::fetchHealth()
+int Enemy::fetchHealth() const
 {
     return m_health;
 }
 
-bool Enemy::isAlive()
+bool Enemy::isAlive() const
 {
     return fetchHealth();
 }
@@ -41,7 +41,7 @@ Question Enemy::getRandQuestion(std::vector<Question> &questionsList)
     return temp;
 }
 
-int Enemy::fetchDifficulty()
+int Enemy::fetchDifficulty() const
 {
     return m_difficulty;
 }
