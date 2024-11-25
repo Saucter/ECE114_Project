@@ -1,0 +1,19 @@
+What happens if you call `delete` on a pointer that was not allocated using `new`?\n endl A) Undefined behavior\n B) Nothing happens\n C) The program crashes\n D) It automatically frees memory\n ans:A~
+
+What will the following code output?\n @const int x = 5;@\n @int *ptr = (int*)&x;@\n @*ptr = 10;@\n @std::cout << x << std::endl;@\n endl A) 5\n B) 10\n C) Undefined behavior\n D) Compilation error\n ans:C~
+
+What happens when you forget to use `delete[]` for a dynamically allocated array?\n endl A) Memory leak\n B) Segfault\n C) Undefined behavior\n D) Automatically freed\n ans:A~
+
+What is the primary purpose of the `const` keyword?\n endl A) To allow mutable variables\n B) To declare variables that can be reassigned\n C) To prevent modification of variables\n D) To allocate memory dynamically\n ans:C~
+
+Which operator can be overloaded in C++?\n endl A) `?:`\n B) `+`\n C) `sizeof`\n D) `.`\n ans:B~
+
+What is the result of the following code?\n @int *ptr = nullptr;@\n @*ptr = 10;@\n ans:segfault~
+
+Will the following code compile?\n @std::vector<int> intArray[5];@\n @std::vector<std::vector<int>> intVector(intArray, intArray + 5);@\n endl A) Yes\n B) No because vector declaration is wrong\n C) No because the vectors are not of the same type\n D) No because pointer position is ambigious ans:A~
+
+What will this code output?\n @int arr[5] = {1, 2, 3, 4, 5};@\n @int &ref = arr[3];@\n @ref = 10;@\n @std::cout << arr[3] << std::endl;@\n endl A) 3\n B) 4\n C) 10\n D) Compilation Error\n ans:C~
+
+What does this code print?\n @class Test {@\n @public:@\n @int x;@\n @Test(int val) : x(val) {}@\n @int getX() { return x; }@\n @};@\n @int main() {@\n @Test obj(42);@\n @std::cout << obj.getX() << std::endl;@\n return 0;@\n }@\n endl A) 0\n B) 42\n C) Garbage Value\n D) Compilation Error\n ans:B~
+
+What will this code do?\n @int *ptr = nullptr;@\n @if (!ptr) {@\n @std::cout << "Null";@\n @} else {@\n @std::cout << "Not Null";@\n @}@\n endl A) Null\n B) Not Null\n C) Compilation Error\n D) Undefined Behavior\n ans:A~
