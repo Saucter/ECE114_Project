@@ -8,6 +8,22 @@
 #include "../include/Player.h"
 #include "../include/Enemy.h"
 #include "../include/Item.h"
+#include "../include/QuestionManager.h"
+#include "../include/Question.h"
+
+using namespace std::literals::string_literals;
+
+QuestionManager qm;
+std::vector<Question> questionTiers[5];
+std::vector<std::vector<Question>> questionsUsed;
+
+CombatManager::CombatManager()
+{
+    for(int i = 0; i < 5; i++)
+        questionTiers[i] = qm.fetchQuestion(i + 1);
+    questionsUsed.assign(questionTiers, questionTiers + 5);
+}
+
 
 void CombatManager::playDialogue(const std::vector<std::string>& lines, int charDelayMs, int lineDelayMs) 
 {
@@ -57,11 +73,42 @@ void CombatManager::playDialogue(const std::vector<std::string>& lines, int char
 
 void CombatManager::takeDamage(Player &player, Enemy &enemy)
 {
-    
+    player.takeDamage(enemy.fetchDamage());
 }
 
 
-void CombatManager::causeDamage(Player &player, Enemy &enemy)
+void CombatManager::causeDamage(Enemy &enemy, int amount)
 {
+    enemy.takeDamaege(amount);
+}
 
+void CombatManager::useItem(Player &player, Enemy &enemy, Item &item)
+{
+    if(item.type == "heal"s)
+    {
+        player.removeItem(item);
+        player.heal(item.value);
+    }
+    else if(item.type == "block"s)
+    {
+        player.removeItem(item);
+        player.shield(item.value);
+    }
+    else if(item.type == "damage"s)
+    {
+        causeDamage(enemy, item.value);
+    }
+}
+
+bool CombatManager::result(Player &player, Enemy &enemy)
+{
+    return player.isAlive() && enemy.isAlive();
+}
+
+inline bool input(Enemy &enemy)
+{
+    std::string answer;
+    std::getline(std::cin, answer);
+
+    // more code...
 }

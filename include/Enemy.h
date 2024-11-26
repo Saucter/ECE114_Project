@@ -15,12 +15,11 @@ class Enemy
         int m_difficulty;
         int m_rewardTier;
         Dialogue m_dialogue;
-        int m_damageMultiplyer;
+        int m_damage;
         std::vector<Enemy> enemyList;
 
     public:
-        Enemy(std::string name, int health, int difficulty, Dialogue dialogue);
-        int attackPlayer();
+        Enemy(std::string name, int health, int difficulty, int damage, Dialogue dialogue);
         void takeDamaege(int damage);
         bool isAlive() const;
         int fetchHealth() const;
@@ -29,6 +28,7 @@ class Enemy
         int fetchDifficulty() const;
         int dropItem(Player &player);
         std::vector<Enemy> retrieveEnemy();
+        int fetchDamage() const;
 };
 
 #endif
