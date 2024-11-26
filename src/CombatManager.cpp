@@ -26,12 +26,36 @@ CombatManager::CombatManager()
     }   
 }
 
+void CombatManager::printQuestion(Enemy &enemy)
+{
+    bool encapsulateCode = false;
+    tempQuestion = qm.enemyQuestion(enemy, questionsUsed, questionTiers);
+    for(auto &ch : tempQuestion.questionStirng)
+    {
+        if(ch == '@' && !encapsulateCode)
+        {
+            std::cout << "\033[1;45m";
+            encapsulateCode = true;
+        }
+        else if(ch == '@' && encapsulateCode)
+        {
+            std::cout << "\033[0m";
+            encapsulateCode = false;
+        }
+        else
+            std::cout << ch;
+    }
+
+    std::cout << std::endl;
+}
+
 void CombatManager::playDialogue(const std::vector<std::string>& lines, int charDelayMs, int lineDelayMs) 
 {
     auto startTime = std::chrono::steady_clock::now(); // Record the start time
     size_t currentLine = 0;
     size_t currentChar = 0;
     int threeLines = 0;
+    bool isBold = true; // Start with bold text
 
     while (currentLine < lines.size()) 
     {
@@ -44,8 +68,21 @@ void CombatManager::playDialogue(const std::vector<std::string>& lines, int char
         {
             if (currentChar < lines[currentLine].size()) 
             {
-                // Print the next character
-                std::cout << lines[currentLine][currentChar] << std::flush;
+                // Check if the current character is a colon
+                if (lines[currentLine][currentChar] == ':' && isBold) 
+                {
+                    // Print the colon in bold
+                    std::cout << "\033[1m" << lines[currentLine][currentChar] << "\033[0m" << std::flush;
+                    isBold = false; // Switch to normal text after the colon
+                } 
+                else 
+                {
+                    // Print the next character with the appropriate formatting
+                    if (isBold)
+                        std::cout << "\033[1m" << lines[currentLine][currentChar] << "\033[0m" << std::flush;
+                    else
+                        std::cout << lines[currentLine][currentChar] << std::flush;
+                }
                 currentChar++;
             } 
             else if (elapsedTime.count() >= lineDelayMs) 
@@ -62,7 +99,7 @@ void CombatManager::playDialogue(const std::vector<std::string>& lines, int char
         // Allow the program to perform other tasks
         std::this_thread::sleep_for(std::chrono::milliseconds(1)); // Prevent tight CPU loop
 
-        if(threeLines == 3)
+        if (threeLines == 3)
         {
             std::cout << "\033[2J\033[H"; 
             threeLines = 0;
@@ -76,7 +113,6 @@ void CombatManager::takeDamage(Player &player, Enemy &enemy)
 {
     player.takeDamage(enemy.fetchDamage());
 }
-
 
 void CombatManager::causeDamage(Enemy &enemy, int amount)
 {
@@ -110,9 +146,9 @@ inline CombatManager::resultstatus CombatManager::input(Player &player, Enemy &e
 {
     std::string answer;
     std::getline(std::cin, answer);
-    answer = toUppercase(answer);
+    answer = stringUpper(answer);
     
-    if(toUppercase(qm.enemyQuestion(enemy, questionsUsed, questionTiers).answer) == answer)
+    if(stringUpper(tempQuestion.answer) == answer)
     {
         return resultstatus::Correct;
     }
@@ -120,7 +156,7 @@ inline CombatManager::resultstatus CombatManager::input(Player &player, Enemy &e
     {
         for(auto &item : player.showInventory())
         {
-            if(answer == ("use "s + toUppercase(item.name)))
+            if(answer == ("USE "s + stringUpper(item.name)))
             {
                 useItem(player, enemy, item);
                 return resultstatus::Use;
@@ -131,11 +167,11 @@ inline CombatManager::resultstatus CombatManager::input(Player &player, Enemy &e
     }
 }
 
-std::string toUppercase(std::string str)
+std::string stringUpper(std::string str)
 {
-    for(auto &c : str)
+    for(auto &ch : str)
     {
-        c = std::toupper(c);
+        ch = std::toupper(ch);
     }
     return str;
 }
