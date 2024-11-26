@@ -3,6 +3,7 @@
 #include <chrono>
 #include <thread>
 #include <vector>
+#include <cctype>
 
 #include "../include/CombatManager.h"
 #include "../include/Player.h"
@@ -22,7 +23,7 @@ CombatManager::CombatManager()
     {
         questionTiers[i] = qm.fetchQuestion(i + 1); // Fetch default tier questions
         questionsUsed[i] = questionTiers[i];       // Copy default questions to "used" list
-    }
+    }   
 }
 
 void CombatManager::playDialogue(const std::vector<std::string>& lines, int charDelayMs, int lineDelayMs) 
@@ -105,10 +106,36 @@ bool CombatManager::result(Player &player, Enemy &enemy)
     return player.isAlive() && enemy.isAlive();
 }
 
-inline bool input(Enemy &enemy)
+inline CombatManager::resultstatus CombatManager::input(Player &player, Enemy &enemy)
 {
     std::string answer;
     std::getline(std::cin, answer);
+    answer = toUppercase(answer);
+    
+    if(toUppercase(qm.enemyQuestion(enemy, questionsUsed, questionTiers).answer) == answer)
+    {
+        return resultstatus::Correct;
+    }
+    else
+    {
+        for(auto &item : player.showInventory())
+        {
+            if(answer == ("use "s + toUppercase(item.name)))
+            {
+                useItem(player, enemy, item);
+                return resultstatus::Use;
+            }
+        }
 
-    // more code...
+        return resultstatus::Incorrect;
+    }
+}
+
+std::string toUppercase(std::string str)
+{
+    for(auto &c : str)
+    {
+        c = std::toupper(c);
+    }
+    return str;
 }
