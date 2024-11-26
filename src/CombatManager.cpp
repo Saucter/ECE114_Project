@@ -13,17 +13,17 @@
 
 using namespace std::literals::string_literals;
 
-QuestionManager qm;
-std::vector<Question> questionTiers[5];
-std::vector<std::vector<Question>> questionsUsed;
-
 CombatManager::CombatManager()
 {
-    for(int i = 0; i < 5; i++)
-        questionTiers[i] = qm.fetchQuestion(i + 1);
-    questionsUsed.assign(questionTiers, questionTiers + 5);
-}
+    questionTiers.resize(5);
+    questionsUsed.resize(5);
 
+    for (int i = 0; i < 5; i++) 
+    {
+        questionTiers[i] = qm.fetchQuestion(i + 1); // Fetch default tier questions
+        questionsUsed[i] = questionTiers[i];       // Copy default questions to "used" list
+    }
+}
 
 void CombatManager::playDialogue(const std::vector<std::string>& lines, int charDelayMs, int lineDelayMs) 
 {

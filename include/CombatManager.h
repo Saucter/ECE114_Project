@@ -6,12 +6,18 @@
 #include "Item.h"
 #include "Dialogue.h"
 #include "Question.h"
+#include "QuestionManager.h"
 
 #include <vector>
 #include <string>
 
 class CombatManager
 {
+    private:
+        QuestionManager qm;                                
+        std::vector<std::vector<Question>> questionTiers; 
+        std::vector<std::vector<Question>> questionsUsed; 
+
     public:
         CombatManager();
         void startFight(Player &player, Enemy &enemy);

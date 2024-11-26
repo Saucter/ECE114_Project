@@ -42,7 +42,7 @@ Question QuestionManager::splitQuestion(std::string stringedQuestion)
     return result;
 }
 
-Question QuestionManager::enemyQuestion(Enemy enemy, std::vector<std::vector<Question>> &used, const std::vector<Question> (&full)[5])
+Question QuestionManager::enemyQuestion(Enemy enemy, std::vector<std::vector<Question>> &used, const std::vector<std::vector<Question>> &full)
 {
     int difficulty = ((rand() % 10) <= 1 && enemy.fetchDifficulty() != 0) ? enemy.fetchDifficulty() - 1 : enemy.fetchDifficulty();
     if(used[difficulty].empty())

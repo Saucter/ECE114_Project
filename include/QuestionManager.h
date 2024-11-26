@@ -11,7 +11,7 @@ class QuestionManager
     public:
         std::vector<Question> fetchQuestion(int difficulty);
         Question splitQuestion(std::string stringedQuestion);
-        Question enemyQuestion(Enemy enemy, std::vector<std::vector<Question>> &used, const std::vector<Question> (&full)[5]);
+        Question enemyQuestion(Enemy enemy, std::vector<std::vector<Question>> &used, const std::vector<std::vector<Question>> &full);
 };
 
 #endif

@@ -3,7 +3,8 @@
 
 #include <string>
 
-struct Item {
+struct Item 
+{
     std::string name;
     std::string type;
     int quantity = 0; // Default value
