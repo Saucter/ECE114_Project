@@ -140,6 +140,38 @@ const Dialogue TAs = {
     }
 };
 
+const Dialogue Coordinator = {
+    {
+        "NARRATOR: The player finally reaches the fifth floor, their energy waning but their resolve unshaken.",
+        "NARRATOR: Standing near the hallway entrance is the department coordinator, a familiar face who’s always been kind and helpful.",
+        "PLAYER: Oh, finally! A normal person! I need some help—",
+        "COORDINATOR: smiles Oh, hello, dear! You look like you’ve been through quite the ordeal. What can I do for you?",
+        "PLAYER: Thank you! I just need to grab my flash drive. It’s on the 11th floor, but this building’s been… weird.",
+        "COORDINATOR: Oh, the flash drive. I remember you leaving it behind. Such a busy student! Let me—",
+        "NARRATOR: Suddenly, the coordinator’s voice begins to distort. Their kind demeanor shifts as they freeze in place.",
+        "COORDINATOR: *glitching* D-does this code compile?",
+        "COORDINATOR: *@void fun() { int a[10]; std::cout << a[10]; }@ IS THIS VALID?!",
+        "PLAYER: No. No, no, no. Not you too!",
+        "NARRATOR: The player glances at their watch. The deadline looms closer.",
+        "PLAYER: Please forgive me for this.",
+        "NARRATOR: The player clenches their fists and steps forward.",
+        "NARRATOR: FIGHT!"
+    },
+    {
+        "COORDINATOR: You call that an answer? Back in my day, we respected *undefined behavior*!",
+        "COORDINATOR: You young people always forgetting to initialize your variables!",
+        "COORDINATOR: Syntax error? More like life error!"
+    },
+    {
+        "PLAYER: nervously Are you okay?",
+        "COORDINATOR: groans and slowly reboots themselves Oh, my… what happened? Did I… glitch?",
+        "PLAYER: sacrifices must be made I’m so sorry. I didn’t want to do this, but…",
+        "PLAYER: The deadline’s in an hour, and I can’t stop now.",
+        "NARRATOR: Leaving the coordinator behind, the player steels their resolve and sprints to the next set of stairs."
+    }
+};
+
+
 const Dialogue GhostOfRitchie = {
     {
         "NARRATOR: As the player ascends to the sixth floor, the air grows colder.",

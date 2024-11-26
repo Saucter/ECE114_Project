@@ -5,6 +5,7 @@
 #include <vector>
 #include "Question.h"
 #include "Player.h"
+#include "Dialogue.h"
 
 class Enemy
 {
@@ -13,11 +14,12 @@ class Enemy
         int m_health;
         int m_difficulty;
         int m_rewardTier;
-        std::vector<std::string> m_dialogue;
+        Dialogue m_dialogue;
         int m_damageMultiplyer;
+        std::vector<Enemy> enemyList;
 
     public:
-        Enemy(std::string name, int health, int difficulty, int m_rewardTier, std::string dialogueFile);
+        Enemy(std::string name, int health, int difficulty, Dialogue dialogue);
         int attackPlayer();
         void takeDamaege(int damage);
         bool isAlive() const;
@@ -26,6 +28,7 @@ class Enemy
         Question getRandQuestion(std::vector<Question> &questionsList);
         int fetchDifficulty() const;
         int dropItem(Player &player);
+        std::vector<Enemy> retrieveEnemy();
 };
 
 #endif
