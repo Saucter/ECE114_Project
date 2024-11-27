@@ -139,6 +139,12 @@ void CombatManager::playDialogue(const std::vector<std::string> &lines, int char
     std::cout << std::endl; // Ensure the last line ends properly
 }
 
+void CombatManager::playSingleLine(const std::string &line, int charDelayMs) 
+{
+    playDialogue({line}, charDelayMs, 0); // Pass the single string in a vector
+}
+
+
 void CombatManager::takeDamage(Player &player, Enemy &enemy)
 {
     player.takeDamage(enemy.fetchDamage());

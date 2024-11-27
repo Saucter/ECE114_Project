@@ -25,7 +25,7 @@ int main()
     std::vector<Enemy> &enemyList = Enemy::enemyList;
     drawBox(player, enemyList[0]);
     std::vector<std::string> oi = {"oii"s, "testing if this is going to work"s};
-    cm.playDialogue(oi, 100, 1000);
+    cm.playSingleLine("testing this"s, 100);
     // bool lost = false;
 
     // for(auto &fight : enemyList)
@@ -74,7 +74,7 @@ void drawBox(Player &player, Enemy &enemy)
     std::cout << "|                                                               |                              |" << std::endl;
     std::cout << "|                                                               +------------------------------|" << std::endl;
     std::cout << "|                                                               | Health: " << std::right << std::setw(3) << player.fetchHealth() << " / 100            |" << std::endl;
-    std::cout << "|                                                               | Armour: " << std::right << std::setw(2) << player.fetchHealth() << " / 50             |" << std::endl;
+    std::cout << "|                                                               | Armour: " << std::right << std::setw(2) << player.fetchArmor() << " / 50             |" << std::endl;
     std::cout << "|                                                               |                              |" << std::endl;
     std::cout << "|                                                               |                              |" << std::endl;
     std::cout << "|                                                               |                              |" << std::endl;

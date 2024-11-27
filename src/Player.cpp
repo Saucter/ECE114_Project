@@ -44,6 +44,11 @@ int Player::fetchHealth() const
     return m_health;
 }
 
+int Player::fetchArmor() const
+{
+    return m_armor;
+}
+
 bool Player::isAlive() const
 {
     return fetchHealth();

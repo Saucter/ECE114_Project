@@ -19,6 +19,7 @@ class Player
         Player(std::string name, int health, int armor);
         void takeDamage(int damage);
         int fetchHealth() const;
+        int fetchArmor() const;
         bool isAlive() const;
         void heal(int amount);
         void shield(int amount);
