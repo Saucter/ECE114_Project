@@ -22,7 +22,7 @@ CombatManager::CombatManager()
     for (int i = 0; i < 5; i++) 
     {
         questionTiers[i] = qm.fetchQuestion(i + 1); // Fetch default tier questions
-        questionsUsed[i] = questionTiers[i];       // Copy default questions to "used" list
+        questionsUsed[i] = questionTiers[i];        // Copy default questions to "used" list
     }   
 }
 
@@ -32,7 +32,7 @@ bool CombatManager::startFight(Player &player, Enemy &enemy)
     {
         printQuestion(enemy);
         inputResult fightAnswer = input(player, enemy);
-        
+
         switch (fightAnswer.status)
         {
             case resultstatus::Correct:
@@ -59,6 +59,11 @@ bool CombatManager::startFight(Player &player, Enemy &enemy)
                     takeDamage(player, enemy);
         }
     }
+
+    if(player.isAlive() && !enemy.isAlive())
+        return true;
+    else if(!player.isAlive() && enemy.isAlive())
+        return false;
 }
 
 void CombatManager::printQuestion(Enemy &enemy)
@@ -84,7 +89,7 @@ void CombatManager::printQuestion(Enemy &enemy)
     std::cout << std::endl;
 }
 
-void CombatManager::playDialogue(const std::vector<std::string>& lines, int charDelayMs, int lineDelayMs) 
+void CombatManager::playDialogue(const std::vector<std::string> &lines, int charDelayMs, int lineDelayMs) 
 {
     auto startTime = std::chrono::steady_clock::now(); // Record the start time
     size_t currentLine = 0;
@@ -152,6 +157,14 @@ void CombatManager::takeDamage(Player &player, Enemy &enemy)
 void CombatManager::causeDamage(Enemy &enemy, int amount)
 {
     enemy.takeDamaege(amount);
+    std::vector<std::string> hitDialogue = enemy.fetchDialogue().hit;
+    if(hitDialogue.size() > 0)
+    {
+        std::vector<std::string> oneLine;
+        oneLine.push_back(hitDialogue[0]);
+        playDialogue(oneLine, 100, 1000);
+        hitDialogue.erase(hitDialogue.begin());
+    }
 }
 
 void CombatManager::useItem(Player &player, Enemy &enemy, Item &item)
