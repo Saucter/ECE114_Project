@@ -92,7 +92,6 @@ void CombatManager::playDialogue(const std::vector<std::string> &lines, int char
     auto startTime = std::chrono::steady_clock::now(); // Record the start time
     size_t currentLine = 0;
     size_t currentChar = 0;
-    int threeLines = 0;
     bool isBold = true; // Start with bold text
 
     while (currentLine < lines.size()) 
@@ -127,7 +126,6 @@ void CombatManager::playDialogue(const std::vector<std::string> &lines, int char
             {
                 // Move to the next line after a delay
                 std::cout << std::endl;
-                threeLines++;
                 currentLine++;
                 currentChar = 0;
                 startTime = std::chrono::steady_clock::now(); // Reset the timer for the new line
@@ -136,12 +134,6 @@ void CombatManager::playDialogue(const std::vector<std::string> &lines, int char
 
         // Allow the program to perform other tasks
         std::this_thread::sleep_for(std::chrono::milliseconds(1)); // Prevent tight CPU loop
-
-        if (threeLines == 3)
-        {
-            std::cout << "\033[2J\033[H"; 
-            threeLines = 0;
-        }
     }
 
     std::cout << std::endl; // Ensure the last line ends properly
