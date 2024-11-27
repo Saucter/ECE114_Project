@@ -27,7 +27,7 @@ class CombatManager
 
         CombatManager();
         bool startFight(Player &player, Enemy &enemy);
-        void playDialogue(const std::string &lines, int charDelayMs);
+        void playDialogue(const std::vector<std::string>& lines, int charDelayMs, int lineDelayMs);
         void printQuestion(Enemy &enemy);
         void takeDamage(Player &player, Enemy &enemy);
         void causeDamage(Enemy &enemy, int amount);

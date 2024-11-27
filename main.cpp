@@ -24,7 +24,8 @@ int main()
     Player player("Player", 100, 0);
     std::vector<Enemy> &enemyList = Enemy::enemyList;
     drawBox(player, enemyList[0]);
-    cm.playDialogue("hiiiiiiiii brother, how is it going?"s, 50);
+    std::vector<std::string> oi = {"oii"s, "testing if this is going to work"s};
+    cm.playDialogue(oi, 100, 1000);
     // bool lost = false;
 
     // for(auto &fight : enemyList)
