@@ -11,6 +11,7 @@
 #include "../include/Item.h"
 #include "../include/QuestionManager.h"
 #include "../include/Question.h"
+#include "../include/questionTiers.h"
 
 using namespace std::literals::string_literals;
 
@@ -19,11 +20,8 @@ CombatManager::CombatManager()
     questionTiers.resize(5);
     questionsUsed.resize(5);
 
-    for (int i = 0; i < 5; i++) 
-    {
-        questionTiers[i] = qm.fetchQuestion(i + 1); // Fetch default tier questions
-        questionsUsed[i] = questionTiers[i];        // Copy default questions to "used" list
-    }   
+    questionTiers = {tier1Questions, tier2Questions, tier3Questions, tier4Questions, tier5Questions};
+    questionsUsed = questionsUsed;
 }
 
 bool CombatManager::startFight(Player &player, Enemy &enemy)

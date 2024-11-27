@@ -2,6 +2,7 @@
 #include <random>
 #include <fstream>
 #include <vector>
+#include <iostream>
 #include "../include/Enemy.h"
 #include "../include/Question.h"
 #include "../include/Dialogue.h"
@@ -44,10 +45,19 @@ bool Enemy::isAlive() const
 
 Question Enemy::getRandQuestion(std::vector<Question> &questionsList)
 {
-    int chosen = rand() % questionsList.size(); 
-    Question temp = questionsList[chosen];
-    questionsList.erase(questionsList.begin() + chosen);
-    return temp;
+    if(questionsList.empty())
+    {
+        std::cout << "Empty...";
+        Question oi = {""s, ""s, ""s};
+        return oi;
+    }
+    else
+    {
+        int chosen = rand() % questionsList.size(); 
+        Question temp = questionsList[chosen];
+        questionsList.erase(questionsList.begin() + chosen);
+        return temp;
+    }
 }
 
 int Enemy::fetchDifficulty() const
