@@ -15,7 +15,7 @@ Enemy::Enemy(std::string name, int health, int difficulty, int damage, Dialogue 
     m_rewardTier = difficulty;
 }
 
-std::vector<Enemy> enemyList = 
+std::vector<Enemy> Enemy::enemyList = 
 {
     Enemy("Security Guard", 20, 1, 5, SecurityGuard),
     Enemy("IT Admin", 30, 1, 8, ITAdmin),

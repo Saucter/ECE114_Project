@@ -5,6 +5,8 @@
 #include <vector>
 #include "Item.h"
 
+class Enemy;
+
 class Player
 {
     private:

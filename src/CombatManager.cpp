@@ -204,7 +204,7 @@ inline CombatManager::inputResult CombatManager::input(Player &player, Enemy &en
         return {resultstatus::Incorrect, answer};
 }
 
-std::string stringUpper(std::string str)
+std::string CombatManager::stringUpper(std::string str)
 {
     for(auto &ch : str)
     {

@@ -34,6 +34,7 @@ class CombatManager
         void useItem(Player &player, Enemy &enemy, Item &item);
         bool result(Player &player, Enemy &enemy);
         inline CombatManager::inputResult input(Player &player, Enemy &enemy);
+        std::string stringUpper(std::string str);
 };
 
 #endif

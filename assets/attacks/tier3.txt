@@ -16,7 +16,7 @@ What happens if you fail to delete a dynamically allocated pointer?\n endl A) Me
 
 What does the expression *(arr + 2) evaluate to for int arr[3] = {10, 20, 30}?\n ans:30~
 
-What happens if you don’t define a constructor in a class?\n endl A) The program won’t compile\n B) A default constructor is automatically provided\n C) You must manually create one\n D) Undefined behavior\n ans:B~
+What happens if you don't define a constructor in a class?\n endl A) The program won't compile\n B) A default constructor is automatically provided\n C) You must manually create one\n D) Undefined behavior\n ans:B~
 
 What does the following declaration do: int* func()?\n ans:return~
 
