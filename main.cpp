@@ -24,6 +24,7 @@ int main()
     Player player("Player", 100, 0);
     std::vector<Enemy> &enemyList = Enemy::enemyList;
     drawBox(player, enemyList[0]);
+    cm.playDialogue("hiiiiiiiii brother, how is it going?"s, 50);
     // bool lost = false;
 
     // for(auto &fight : enemyList)
@@ -80,8 +81,8 @@ void drawBox(Player &player, Enemy &enemy)
     std::cout << "|                                                                                              |" << std::endl;
 }
 
-void drawNarrative(Enemy &enemy)
-{
-    cm.playDialogue()
-}
+// void drawNarrative(Enemy &enemy)
+// {
+//     cm.playDialogue()
+// }
 
