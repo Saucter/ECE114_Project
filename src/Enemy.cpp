@@ -65,3 +65,8 @@ int Enemy::fetchDamage() const
     return m_damage;
 }
 
+Dialogue Enemy::fetchDialogue() const
+{
+    return m_dialogue;
+}
+

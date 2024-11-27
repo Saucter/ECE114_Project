@@ -16,7 +16,6 @@ class Enemy
         int m_rewardTier;
         Dialogue m_dialogue;
         int m_damage;
-        std::vector<Enemy> enemyList;
 
     public:
         Enemy(std::string name, int health, int difficulty, int damage, Dialogue dialogue);
@@ -29,6 +28,9 @@ class Enemy
         int dropItem(Player &player);
         std::vector<Enemy> retrieveEnemy();
         int fetchDamage() const;
+        Dialogue fetchDialogue() const;
+
+        static std::vector<Enemy> enemyList;
 };
 
 #endif
