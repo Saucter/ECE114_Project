@@ -26,6 +26,41 @@ CombatManager::CombatManager()
     }   
 }
 
+bool CombatManager::startFight(Player &player, Enemy &enemy)
+{
+    while(player.isAlive() && enemy.isAlive())
+    {
+        printQuestion(enemy);
+        inputResult fightAnswer = input(player, enemy);
+        
+        switch (fightAnswer.status)
+        {
+            case resultstatus::Correct:
+                causeDamage(enemy, 10);
+                break;
+
+            case resultstatus::Incorrect:
+                takeDamage(player, enemy);
+                break;
+
+            case resultstatus::Use:
+                bool available = true;
+                for(auto &item : player.showInventory())
+                {
+                    if(fightAnswer.answer == ("USE "s + stringUpper(item.name)) && item.quantity > 0)
+                    {
+                        useItem(player, enemy, item);
+                        available = false;
+                        break;
+                    }
+                }
+
+                if(available)
+                    takeDamage(player, enemy);
+        }
+    }
+}
+
 void CombatManager::printQuestion(Enemy &enemy)
 {
     bool encapsulateCode = false;
@@ -142,29 +177,18 @@ bool CombatManager::result(Player &player, Enemy &enemy)
     return player.isAlive() && enemy.isAlive();
 }
 
-inline CombatManager::resultstatus CombatManager::input(Player &player, Enemy &enemy)
+inline CombatManager::inputResult CombatManager::input(Player &player, Enemy &enemy)
 {
     std::string answer;
     std::getline(std::cin, answer);
     answer = stringUpper(answer);
     
     if(stringUpper(tempQuestion.answer) == answer)
-    {
-        return resultstatus::Correct;
-    }
+        return {resultstatus::Correct, answer};
+    else if(answer.substr(0, 3) == "USE"s)
+        return {resultstatus::Use, answer};
     else
-    {
-        for(auto &item : player.showInventory())
-        {
-            if(answer == ("USE "s + stringUpper(item.name)))
-            {
-                useItem(player, enemy, item);
-                return resultstatus::Use;
-            }
-        }
-
-        return resultstatus::Incorrect;
-    }
+        return {resultstatus::Incorrect, answer};
 }
 
 std::string stringUpper(std::string str)
