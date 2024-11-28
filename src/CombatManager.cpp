@@ -21,14 +21,14 @@ CombatManager::CombatManager()
     questionsUsed.resize(5);
 
     questionTiers = {tier1Questions, tier2Questions, tier3Questions, tier4Questions, tier5Questions};
-    questionsUsed = questionsUsed;
+    questionsUsed = questionTiers;
 }
 
 bool CombatManager::startFight(Player &player, Enemy &enemy)
 {
     while(player.isAlive() && enemy.isAlive())
     {
-        printQuestion(enemy);
+        // printQuestion(enemy);
         inputResult fightAnswer = input(player, enemy);
 
         switch (fightAnswer.status)
@@ -64,28 +64,28 @@ bool CombatManager::startFight(Player &player, Enemy &enemy)
         return false;
 }
 
-void CombatManager::printQuestion(Enemy &enemy)
-{
-    bool encapsulateCode = false;
-    tempQuestion = qm.enemyQuestion(enemy, questionsUsed, questionTiers);
-    for(auto &ch : tempQuestion.questionStirng)
-    {
-        if(ch == '@' && !encapsulateCode)
-        {
-            std::cout << "\033[1;45m";
-            encapsulateCode = true;
-        }
-        else if(ch == '@' && encapsulateCode)
-        {
-            std::cout << "\033[0m";
-            encapsulateCode = false;
-        }
-        else
-            std::cout << ch;
-    }
+// void CombatManager::printQuestion(Enemy &enemy)
+// {
+//     bool encapsulateCode = false;
+//     tempQuestion = qm.enemyQuestion(enemy, questionsUsed, questionTiers);
+//     for(auto &ch : tempQuestion.questionStirng)
+//     {
+//         if(ch == '' && !encapsulateCode)
+//         {
+//             std::cout << "\033[1;45m";
+//             encapsulateCode = true;
+//         }
+//         else if(ch == '' && encapsulateCode)
+//         {
+//             std::cout << "\033[0m";
+//             encapsulateCode = false;
+//         }
+//         else
+//             std::cout << ch;
+//     }
 
-    std::cout << std::endl;
-}
+//     std::cout << std::endl;
+// }
 
 void CombatManager::playDialogue(const std::vector<std::string> &lines, int charDelayMs, int lineDelayMs) 
 {

@@ -8,24 +8,24 @@ const Dialogue SecurityGuard = {
         "NARRATOR: A wild ECE114 student is seen in their natural habitat: Rush Rhees",
         "NARRATOR: As they are working on their game project, they suddenly remember…",
         "NARRATOR: THEY FORGOT THEIR FLASH DRIVE!",
-        "PLAYER: Dude… I gotta stop using flash drives man… I gotta go to @CSB@ now…",
+        "PLAYER: Dude… I gotta stop using flash drives man… I gotta go to CSB now…",
         "NARRATOR: They get up… leaving their laptop and notes behind",
         "NARRATOR: The player recalls that they left their flash drive on a computer they were working on",
-        "NARRATOR: On the @11th floor@!!!",
+        "NARRATOR: On the 11th floor!!!",
         "NARRATOR: As they start walking to the building, it starts raining, and the sky turns dark",
         "PLAYER: What's going on all of a sudden?",
         "NARRATOR: Drenched, they get to the front of the building",
         "SECURITY GUARD: Hey! Where are you going?",
         "NARRATOR: A wild security guard appears!",
         "PLAYER: I forgot something, can I go in… also since when does CSB have a security guard?",
-        "SECURITY GUARD: Not on my watch! Does @int *ptr = 2;@ compile?",
+        "SECURITY GUARD: Not on my watch! Does int *ptr = 2; compile?",
         "PLAYER: What…?",
-        "SECURITY GUARD: DON'T MESS WITH ME, DOES @int *ptr = 2;@ COMPILE?",
+        "SECURITY GUARD: DON'T MESS WITH ME, DOES int *ptr = 2; COMPILE?",
         "PLAYER: Uuuh… no?",
         "NARRATOR: AND THE CRUEL PLAYER DAMAGES THE SECURITY GUARD!",
         "PLAYER: W- what? Wtf do you mean I damaged him?",
         "PLAYER: How does C++ trivia hurt, and why is a security guard asking me that?",
-        "SECURITY GUARD: @-5 damage@",
+        "SECURITY GUARD: -5 damage",
         "PLAYER: Huh???",
         "NARRATOR: FIGHT!"
     },
@@ -39,7 +39,7 @@ const Dialogue SecurityGuard = {
         "NARRATOR: The player enters the building, and sees “Casul” and “Hard” inscribed into the elevators doors",
         "NARRATOR: Which door does he choose?",
         "PLAYER: Uuuh?",
-        "NARRATOR: Type @L@ for CASUAL, @R@ for HARD"
+        "NARRATOR: Type L for CASUAL, R for HARD"
     }
 };
 
@@ -56,7 +56,7 @@ const Dialogue ITAdmin = {
         "IT ADMIN: gruffly What's the problem? Can't handle a simple log-in?",
         "PLAYER: Yeah, my password isn't working, and I need to get to the 11th floor. Can you reset my account or something?",
         "IT ADMIN: suspiciously Oh, we'll see if you're worthy… Does this code snippet compile?",
-        "@int &ref = nullptr;@",
+        "int &ref = nullptr;",
         "PLAYER: Dude, what is it with people and C++ trivia?!",
         "NARRATOR: Before they can object further, the IT Admin starts throwing more questions!",
         "NARRATOR: FIGHT!"
@@ -89,7 +89,7 @@ const Dialogue VendingMachine = {
         "VENDING MACHINE: YOU HAVE AWAKENED THE ANCIENT SPIRIT OF VENDI VIDI VICI THE ETERNAL!",
         "PLAYER: What…?",
         "VENDING MACHINE: FOOLISH MORTAL, TO RECEIVE YOUR PRECIOUS CAFFEINE, YOU MUST ANSWER THIS:",
-        "@std::vector<int> v(10); v[11] = 42; std::cout << v[11];@",
+        "std::vector<int> v(10); v[11] = 42; std::cout << v[11];",
         "PLAYER: Oh, come on! First guards, then IT, and now you?! Why is everything in this place obsessed with C++?!",
         "NARRATOR: The vending machine towers over the player, ready to fight.",
         "NARRATOR: FIGHT!"
@@ -120,7 +120,7 @@ const Dialogue TAs = {
         "TAs (in unison): YOU DARE SCALE THIS BUILDING, MERE MORTAL?",
         "PLAYER: Look, I don't want any trouble. I just need my—",
         "TAs (in unison): SILENCE! ANSWER THIS IF YOU WISH TO PROCEED:",
-        "@for (int i = 0; i < 5; i++) { static int x = 0; x++; } std::cout << x;@",
+        "for (int i = 0; i < 5; i++) { static int x = 0; x++; } std::cout << x;",
         "PLAYER: Oh, for the love of… Why is everyone in this place obsessed with C++?!",
         "NARRATOR: The TAs form a menacing circle, chanting snippets of code in perfect harmony.",
         "NARRATOR: FIGHT!"
@@ -150,7 +150,7 @@ const Dialogue Coordinator = {
         "COORDINATOR: Oh, the flash drive. I remember you leaving it behind. Such a busy student! Let me—",
         "NARRATOR: Suddenly, the coordinator's voice begins to distort. Their kind demeanor shifts as they freeze in place.",
         "COORDINATOR: *glitching* D-does this code compile?",
-        "COORDINATOR: *@void fun() { int a[10]; std::cout << a[10]; }@ IS THIS VALID?!",
+        "COORDINATOR: *void fun() { int a[10]; std::cout << a[10]; } IS THIS VALID?!",
         "PLAYER: No. No, no, no. Not you too!",
         "NARRATOR: The player glances at their watch. The deadline looms closer.",
         "PLAYER: Please forgive me for this.",
@@ -188,7 +188,7 @@ const Dialogue GhostOfRitchie = {
         "GHOST OF RITCHIE: Your department's obsession with C has awakened me from eternal rest!",
         "PLAYER: Great. Now I'm being haunted by the inventor of C. This is just my luck.",
         "GHOST OF RITCHIE: SILENCE, FOOLISH MORTAL! ANSWER THIS, OR BE DOOMED TO SEGFAULT FOREVER:",
-        "@char *p = \"Hello\"; p[0] = 'h'; printf(\"%s\", p);@",
+        "char *p = \"Hello\"; p[0] = 'h'; printf(\"%s\", p);",
         "PLAYER: Oh, come on! Can I just get my flash drive without a history lesson?!",
         "NARRATOR: The ghost wields a spectral keyboard, its keys glowing with unearthly light.",
         "NARRATOR: FIGHT!"
@@ -223,7 +223,7 @@ const Dialogue ProfessorsCat = {
         "CAT: MEEEOOOOWWWWWRRRR!",
         "PLAYER: What the—?!",
         "CAT: *glitching* DOES… THIS… CODE… COMPILE?!",
-        "@std::vector<int> v(10); v[11] = 42; std::cout << v[11];@",
+        "std::vector<int> v(10); v[11] = 42; std::cout << v[11];",
         "PLAYER: Oh, come on! First ghosts, now cats? WHY IS EVERYTHING IN THIS BUILDING CURSED?!",
         "NARRATOR: The cat arches its back, claws sparking with unholy energy. It begins to hover in midair.",
         "NARRATOR: FIGHT!"
@@ -257,7 +257,7 @@ const Dialogue ProfessorLee = {
         "PROF. LEE: smiles Hello Kitty does like to test students' resolve. But you… you've done well. There's just one final challenge.",
         "PLAYER: No, no, no. Please don't say it.",
         "PROF. LEE: calmly Does this code compile?",
-        "@template<typename T> void func(T&& t) { static_assert(sizeof(T) > 0, \"Type must not be empty.\"); } func(\"\");@",
+        "template<typename T> void func(T&& t) { static_assert(sizeof(T) > 0, \"Type must not be empty.\"); } func(\"\");",
         "PLAYER: Oh, for the love of… WHY IS IT ALWAYS C++?!",
         "NARRATOR: Prof. Lee stands, the air around him crackling with an energy the player can only describe as… *professorial*.",
         "PROF. LEE: Show me what you've learned.",
