@@ -32,7 +32,8 @@ int main()
     bool lost = false;
     for(auto &fight: enemyList)
     {
-        cm.drawBox(player, fight, Question{""s, ""s, ""s});
+        Question noQuestion = {""s, ""s, ""s};
+        cm.drawBox(player, fight, noQuestion);
         cm.drawNarrative(fight.fetchDialogue().start);
         bool result = cm.startFight(player, fight);
         if(!result)
@@ -40,6 +41,8 @@ int main()
             lost = true;
             break;
         }
+        cm.drawBox(player, fight, noQuestion);
+        cm.drawNarrative(fight.fetchDialogue().end);
     }
 
     if(lost)

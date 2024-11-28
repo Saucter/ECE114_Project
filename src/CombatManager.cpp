@@ -104,6 +104,7 @@ bool CombatManager::startFight(Player &player, Enemy &enemy)
         // printQuestion(enemy);
         tempQuestion = qm.enemyQuestion(enemy, questionsUsed, questionTiers);
         drawBox(player, enemy, tempQuestion);
+        std::cout << "\n Answer: ";
         inputResult fightAnswer = input(player, enemy);
 
         switch (fightAnswer.status)
@@ -283,4 +284,3 @@ std::string CombatManager::stringUpper(std::string str)
     }
     return str;
 }
-
