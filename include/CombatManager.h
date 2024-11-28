@@ -36,6 +36,9 @@ class CombatManager
         bool result(Player &player, Enemy &enemy);
         inline CombatManager::inputResult input(Player &player, Enemy &enemy);
         std::string stringUpper(std::string str);
+        void drawNarrative(std::vector<std::string> scene, Enemy &enemy);
+        std::vector<std::string> splitString(const std::string &str, char delimiter);
+        void drawBox(Player &player, Enemy &enemy, Question &question);
 };
 
 #endif

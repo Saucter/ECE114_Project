@@ -4,6 +4,12 @@
 #include <thread>
 #include <vector>
 #include <cctype>
+#include <ctime>
+#include <random>
+#include <algorithm>
+#include <iomanip>
+#include <sstream>
+
 
 #include "../include/CombatManager.h"
 #include "../include/Player.h"
@@ -22,6 +28,72 @@ CombatManager::CombatManager()
 
     questionTiers = {tier1Questions, tier2Questions, tier3Questions, tier4Questions, tier5Questions};
     questionsUsed = questionTiers;
+}
+
+void CombatManager::drawBox(Player &player, Enemy &enemy, Question &question) 
+{
+    // Clear the screen
+    std::cout << "\033[2J\033[H";
+    std::vector<Item> inventory = player.showInventory();
+    std::vector<std::string> parsedQuestion = splitString(question.questionStirng, '\n');
+    int lines = parsedQuestion.size();
+
+    std::sort(inventory.begin(), inventory.end(), [](const Item &a, const Item &b)
+    {
+        return a.quantity > b.quantity;
+    });
+    auto inventoryElement = [&inventory](int index) -> std::string 
+    {
+        return (inventory[index].quantity != 0) ? ("* "s + inventory[index].name) : "";
+    };
+    auto safeAccess = [&](int index) 
+    {
+    return (lines > index && index < parsedQuestion.size()) ? parsedQuestion[index] : ""s;
+    };
+
+
+    // Draw the layout
+    std::cout << "+------------------------------------------------------------------------------------------------------------------------------+" << std::endl;
+    std::cout << "| " << std::setw(94) << std::left << safeAccess(0) << "| Inventory                    |" << std::endl;
+    std::cout << "| " << std::left << std::setw(94) << safeAccess(1) << "| ---------                    |" << std::endl;
+    std::cout << "| " << std::left << std::setw(94) << safeAccess(2) << "| " << std::left << std::setw(29) << inventoryElement(0) << "|" << std::endl;
+    std::cout << "| " << std::left << std::setw(94) << safeAccess(3) << "| " << std::left << std::setw(29) << inventoryElement(1) << "|" << std::endl;
+    std::cout << "| " << std::left << std::setw(94) << safeAccess(4) << "| " << std::left << std::setw(29) << inventoryElement(2) << "|" << std::endl;
+    std::cout << "| " << std::left << std::setw(94) << safeAccess(5) << "| " << std::left << std::setw(29) << inventoryElement(3) << "|" << std::endl;
+    std::cout << "| " << std::left << std::setw(94) << safeAccess(6) << "| " << std::left << std::setw(29) << inventoryElement(4) << "|" << std::endl;
+    std::cout << "| " << std::left << std::setw(94) << safeAccess(7) << "|                              |" << std::endl;
+    std::cout << "| " << std::left << std::setw(94) << safeAccess(8) << "+------------------------------|" << std::endl;
+    std::cout << "| " << std::left << std::setw(94) << safeAccess(9) << "| Health: " << std::right << std::setw(3) << player.fetchHealth() << " / 100            |" << std::endl;
+    std::cout << "| " << std::left << std::setw(94) << safeAccess(10) << "| Armour: " << std::right << std::setw(2) << player.fetchArmor() << " / 50              |" << std::endl;
+    std::cout << "| " << std::left << std::setw(94) << safeAccess(11) << "|                              |" << std::endl;
+    std::cout << "| " << std::left << std::setw(94) << safeAccess(12) << "|                              |" << std::endl;
+    std::cout << "|                                                                                               |                              |" << std::endl;
+    std::cout << "|                                                                                               |                              |" << std::endl;
+    std::cout << "|-----------------------------------------------------------------------------------------------+------------------------------|" << std::endl;
+}
+
+void CombatManager::drawNarrative(std::vector<std::string> scene, Enemy &enemy)
+{
+    for(int i = 0; i < scene.size(); i++)
+    {
+        playSingleLine(scene[i], 300);
+        if(i % 5 == 0)
+        {
+            std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+        }
+    }
+}
+
+std::vector<std::string> CombatManager::splitString(const std::string &str, char delimiter) 
+{
+    std::vector<std::string> tokens;
+    std::stringstream ss(str);
+    std::string item;
+    while (std::getline(ss, item, delimiter)) 
+    {
+        tokens.push_back(item);
+    }
+    return tokens;
 }
 
 bool CombatManager::startFight(Player &player, Enemy &enemy)
@@ -208,3 +280,4 @@ std::string CombatManager::stringUpper(std::string str)
     }
     return str;
 }
+
