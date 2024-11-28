@@ -36,10 +36,10 @@ const Dialogue SecurityGuard = {
         "PLAYER: Is… is he dead?!",
         "NARRATOR: NO, YOU FOOL… He's just taking a nap…",
         "PLAYER: What's going on here?",
-        "NARRATOR: The player enters the building, and sees “Casul” and “Hard” inscribed into the elevators doors",
-        "NARRATOR: Which door does he choose?",
+        "NARRATOR: The enemy has DROPPED a shint item. The player picks it up",
+        "NARRATOR: To use the item, the player must type USE followed by the item's name?",
         "PLAYER: Uuuh?",
-        "NARRATOR: Type L for CASUAL, R for HARD"
+        "NARRATOR: You will get it.... don't worry.."
     }
 };
 
