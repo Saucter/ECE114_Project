@@ -28,8 +28,13 @@ std::vector<std::string> dialogueBar = {""s, ""s, "s", ""s, ""s};
 int main()
 {
     srand(time(NULL));
-
     bool lost = false;
+
+        cm.playSingleLine("For best experience: Play on full screen!", 250);
+        cm.playSingleLine("For best experience: Use your machine's terminal, not VSC's!", 250);
+        cm.playSingleLine("Press enter to continue", 250);
+        std::cin;
+
     for(auto &fight: enemyList)
     {
         Question noQuestion = {""s, ""s, ""s};
@@ -46,9 +51,15 @@ int main()
     }
 
     if(lost)
-        std::cout << "You suck...";
+    {
+        std::cout << "\033[2J\033[H";
+        cm.playSingleLine("YOU DIED", 500);
+    }
     else
-        std::cout << "Congrats, Struggler!";
+    {
+        std::cout << "\033[2J\033[H";
+        cm.playSingleLine("Congrats, Struggler. Assignment complete!", 500);
+    }
     return 0;
 }
 

@@ -66,7 +66,7 @@ std::string Player::addItem(const Enemy &enemy)
     int tierIteration = 0;
     for(Item &content : m_inventory)
     {
-        if(content.tier == enemy.fetchDifficulty())
+        if(content.tier == enemy.fetchDifficulty() + 1)
         {
             if(tierIteration == randDrop)
             {

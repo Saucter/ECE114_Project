@@ -9,7 +9,7 @@
 #include <algorithm>
 #include <iomanip>
 #include <sstream>
-
+#include <numeric>
 
 #include "../include/CombatManager.h"
 #include "../include/Player.h"
@@ -36,6 +36,12 @@ void CombatManager::drawBox(Player &player, Enemy &enemy, Question &question)
     std::cout << "\033[2J\033[H";
     std::vector<Item> inventory = player.showInventory();
     std::vector<std::string> parsedQuestion = splitString(question.questionStirng, '\n');
+    std::vector<std::string> parsedMultipleChoice = splitString(question.multipleChoice, '\n');
+    std::string combinedMultipleChoice;
+    for(auto &str : parsedMultipleChoice)
+    {
+        combinedMultipleChoice += (str + "  "s);
+    }
     int lines = parsedQuestion.size();
 
     std::sort(inventory.begin(), inventory.end(), [](const Item &a, const Item &b)
@@ -44,7 +50,7 @@ void CombatManager::drawBox(Player &player, Enemy &enemy, Question &question)
     });
     auto inventoryElement = [&inventory](int index) -> std::string 
     {
-        return (inventory[index].quantity != 0) ? ("* "s + inventory[index].name) : "";
+        return (inventory[index].quantity != 0) ? ("* "s + inventory[index].name + "(x"s + std::to_string(inventory[index].quantity) +")"s) : "";
     };
     auto safeAccess = [&](int index) 
     {
@@ -66,11 +72,11 @@ void CombatManager::drawBox(Player &player, Enemy &enemy, Question &question)
     std::cout << "| " << std::left << std::setw(94) << safeAccess(8) << "+------------------------------|" << std::endl;
     std::cout << "| " << std::left << std::setw(94) << safeAccess(9) << "| Health: " << std::right << std::setw(3) << player.fetchHealth() << " / 100            |" << std::endl;
     std::cout << "| " << std::left << std::setw(94) << safeAccess(10) << "| Armour: " << std::right << std::setw(2) << player.fetchArmor() << " / 50              |" << std::endl;
-    std::cout << "| " << std::left << std::setw(94) << safeAccess(11) << "| Enemy: " << std::right << std::setw(3) << (question.questionStirng == "" ? "? / ?" : enemyHealth) << "            |" << std::endl;
+    std::cout << "| " << std::left << std::setw(94) << safeAccess(11) << "| Enemy: " << std::left << std::setw(24) << (question.questionStirng == "" ? "? / ?" : enemyHealth) << "|" << std::endl;
     std::cout << "| " << std::left << std::setw(94) << safeAccess(12) << "|                              |" << std::endl;
     std::cout << "|                                                                                               |                              |" << std::endl;
-    std::cout << "|                                                                                               |                              |" << std::endl;
-    std::cout << "|-----------------------------------------------------------------------------------------------+------------------------------|" << std::endl;
+    std::cout << "| " << std::left << std::setw(94) << combinedMultipleChoice << "|                              |" << std::endl;
+    std::cout << "|-----------------------------------------------------------------------------------------------+------------------------------+" << std::endl;
 }
 
 void CombatManager::drawNarrative(std::vector<std::string> scene)
@@ -135,7 +141,10 @@ bool CombatManager::startFight(Player &player, Enemy &enemy)
     }
 
     if(player.isAlive() && !enemy.isAlive())
+    {
+        player.addItem(enemy);
         return true;
+    }
     else if(!player.isAlive() && enemy.isAlive())
         return false;
 }
