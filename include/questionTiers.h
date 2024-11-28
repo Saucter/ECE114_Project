@@ -22,7 +22,7 @@ std::vector<Question> tier1Questions = {
     {"Which operator is used to get the memory address of a variable?\n", "A", "A) &\n B) *\n C) ->\n D) ++"},
     {"What does the following code do?\n int x = 5;\n int* ptr = &x;\n *ptr = 15;\n", "A", "A) Changes x to 15\n B) Sets ptr's address to 15\n C) Compilation error\n D) Nothing"},
     {"What will the following code output?\n int x = 3;\n int y = 4;\n std::cout << (x > y ? x : y) << std::endl;\n", "B", "A) 3\n B) 4\n C) Compilation error\n D) Undefined behavior"},
-    {"What is stored in a pointer variable?\n", "B", "A) The value of a variable\n B) The memory address of a variable\n C) A random number\n D) A string"},
+    {"What is stored in a pointer variable?\n", "B", "A) The value of a variable\n B) The memory address\n C) A random number\n D) A string"},
     {"What will the following code print?\n int x = 7;\n int* ptr = &x;\n std::cout << ptr << std::endl;\n", "B", "A) 7\n B) Address of x\n C) Compilation error\n D) Undefined behavior"},
     {"What does the following code do?\n int* ptr = nullptr;\n", "B", "A) Declares a dangling pointer\n B) Declares a null pointer\n C) Declares an int* set to 0\n D) Compilation error"},
     {"What is the value of arr[2] after the following code executes?\n int arr[3] = {1, 2, 3};\n int* ptr = arr;\n *(ptr + 2) = 10;\n", "C", "A) 1\n B) 2\n C) 10\n D) Compilation error"}
@@ -35,7 +35,7 @@ std::vector<Question> tier2Questions = {
     {"What will the following code output?\n int x = 10;\n int* ptr = &x;\n std::cout << ptr << std::endl;\n", "B", "A) 10\n B) Address of x\n C) Compilation error\n D) Undefined behavior"},
     {"Which of the following statements is true about references in C++?\n", "A", "A) Must be initialized\n B) Can be null\n C) Can be reassigned\n D) All of the above"},
     {"Will the following code compile?\n int* ptr = nullptr;\n int x = *ptr;\n", "B", "A) Yes\n B) No"},
-    {"What does the & operator do when used in a declaration like int& ref?\n", "A", "A) Declares a reference\n B) Declares a pointer\n C) Gets an address\n D) Declares a constant"},
+    {"What does the & operator do when used in a declaration like int& ref?\n", "A", "A) Declares reference\n B) Declares pointer\n C) Gets address\n D) Declares constant"},
     {"What is the value of y after the following code executes?\n int x = 5;\n int& ref = x;\n ref = 7;\n int y = x;\n", "B", "A) 5\n B) 7\n C) Undefined\n D) Compilation error"},
     {"What will the following code output?\n int x = 5;\n int* ptr = &x;\n int** doublePtr = &ptr;\n std::cout << **doublePtr << std::endl;\n", "C", "A) Address of ptr\n B) Address of x\n C) 5\n D) Compilation error"},
     {"Which of the following is true about the nullptr keyword in C++?\n", "D", "A) Replaces NULL\n B) Assigned to any pointer\n C) Is strongly typed\n D) All of the above"},
