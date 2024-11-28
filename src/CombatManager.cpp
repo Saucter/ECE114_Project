@@ -72,7 +72,7 @@ void CombatManager::drawBox(Player &player, Enemy &enemy, Question &question)
     std::cout << "| " << std::left << std::setw(94) << safeAccess(8) << "+------------------------------|" << std::endl;
     std::cout << "| " << std::left << std::setw(94) << safeAccess(9) << "| Health: " << std::right << std::setw(3) << player.fetchHealth() << " / 100            |" << std::endl;
     std::cout << "| " << std::left << std::setw(94) << safeAccess(10) << "| Armour: " << std::right << std::setw(2) << player.fetchArmor() << " / 50              |" << std::endl;
-    std::cout << "| " << std::left << std::setw(94) << safeAccess(11) << "| Enemy: " << std::left << std::setw(24) << (question.questionStirng == "" ? "? / ?" : enemyHealth) << "|" << std::endl;
+    std::cout << "| " << std::left << std::setw(94) << safeAccess(11) << "| Enemy: " << std::left << std::setw(22) << (question.questionStirng == "" ? "? / ?" : enemyHealth) << "|" << std::endl;
     std::cout << "| " << std::left << std::setw(94) << safeAccess(12) << "|                              |" << std::endl;
     std::cout << "|                                                                                               |                              |" << std::endl;
     std::cout << "| " << std::left << std::setw(94) << combinedMultipleChoice << "|                              |" << std::endl;

@@ -29,11 +29,11 @@ int main()
 {
     srand(time(NULL));
     bool lost = false;
-
+        std::string placeHolder;
         cm.playSingleLine("For best experience: Play on full screen!", 250);
         cm.playSingleLine("For best experience: Use your machine's terminal, not VSC's!", 250);
         cm.playSingleLine("Press enter to continue", 250);
-        std::cin;
+        std::cin.get();
 
     for(auto &fight: enemyList)
     {
