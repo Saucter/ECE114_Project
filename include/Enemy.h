@@ -31,6 +31,7 @@ class Enemy
         Dialogue fetchDialogue() const;
 
         static std::vector<Enemy> enemyList;
+        int maxHealth;
 };
 
 #endif

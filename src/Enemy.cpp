@@ -14,18 +14,19 @@ Enemy::Enemy(std::string name, int health, int difficulty, int damage, Dialogue 
     : m_name(name), m_health(health), m_difficulty(difficulty), m_damage(damage), m_dialogue(dialogue)
 {
     m_rewardTier = difficulty;
+    maxHealth = m_health;
 }
 
 std::vector<Enemy> Enemy::enemyList = 
 {
-    Enemy("Security Guard", 20, 1, 5, SecurityGuard),
-    Enemy("IT Admin", 30, 1, 8, ITAdmin),
-    Enemy("Vending Machine", 40, 2, 15, VendingMachine),
-    Enemy("TAs", 50, 3, 18, TAs),
-    Enemy ("ECE Coordinator", 60, 3, 18, Coordinator),
-    Enemy("Ghost of Dennis Ritchie", 70, 4, 25, GhostOfRitchie),
-    Enemy("Professor's Cat", 85, 4, 30, ProfessorsCat),
-    Enemy("Professor Lee", 100, 5, 35, ProfessorLee)
+    Enemy("Security Guard", 20, 0, 5, SecurityGuard),
+    Enemy("IT Admin", 30, 0, 8, ITAdmin),
+    Enemy("Vending Machine", 40, 1, 15, VendingMachine),
+    Enemy("TAs", 50, 2, 18, TAs),
+    Enemy ("ECE Coordinator", 60, 2, 18, Coordinator),
+    Enemy("Ghost of Dennis Ritchie", 70, 3, 25, GhostOfRitchie),
+    Enemy("Professor's Cat", 85, 3, 30, ProfessorsCat),
+    Enemy("Professor Lee", 100, 4, 35, ProfessorLee)
 };
 
 void Enemy::takeDamaege(int damage)

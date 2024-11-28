@@ -28,31 +28,24 @@ std::vector<std::string> dialogueBar = {""s, ""s, "s", ""s, ""s};
 int main()
 {
     srand(time(NULL));
-    player.addItem(enemyList[2]);
-    drawBox(enemyList[0], cm.questionsUsed[0][0]);
-    
 
+    bool lost = false;
+    for(auto &fight: enemyList)
+    {
+        cm.drawBox(player, fight, Question{""s, ""s, ""s});
+        cm.drawNarrative(fight.fetchDialogue().start);
+        bool result = cm.startFight(player, fight);
+        if(!result)
+        {
+            lost = true;
+            break;
+        }
+    }
 
-
-    // bool lost = false;
-
-    // for(auto &fight : enemyList)
-    // {
-    //     cm.playDialogue(fight.fetchDialogue().start, 100, 1000);
-    //     bool result = cm.startFight(player, fight);
-    //     if(!result)
-    //     {
-    //         lost = true;
-    //         break;
-    //     }
-    //     cm.playDialogue(fight.fetchDialogue().end, 100, 1000);
-    // }
-
-    // if(lost)
-    //     std::cout << "You suck...";
-    // else
-    //     std::cout << "Congrats, Struggler!";
-
+    if(lost)
+        std::cout << "You suck...";
+    else
+        std::cout << "Congrats, Struggler!";
     return 0;
 }
 
